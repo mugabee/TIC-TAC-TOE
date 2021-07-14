@@ -7,10 +7,23 @@
 
 import SwiftUI
 
+let columns: [GridItem] = [GridItem(.flexible()),
+                           GridItem(.flexible()),
+                           GridItem(.flexible()),]
+
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        LazyVGrid(columns: columns ) {
+            Text("Placeholder")
+            Text("Placeholder")
+            Text("Placeholder")
+            Text("Placeholder")
+            Text("Placeholder")
+            Text("Placeholder")
+            Text("Placeholder")
+            Text("Placeholder")
+            Text("Placeholder")
+        }
     }
 }
 
