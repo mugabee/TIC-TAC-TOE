@@ -23,7 +23,7 @@ struct ContentView: View {
                                 .foregroundColor(.red).opacity(0.5)
                                 .frame(width: geometry.size.width/3 - 15,
                                        height: geometry.size.width/3 - 15)
-                            Image(systemName: "circle")
+                            Image(systemName: "xmark")
                                 .resizable()
                                 .frame(width: 40, height: 40)
                                 .foregroundColor(.white)
@@ -40,6 +40,15 @@ struct ContentView: View {
             
         }
     }
+}
+
+enum Player {
+    case human, computer
+}
+
+struct move {
+    let player: Player
+    let boardIndex: Int
 }
 
 struct ContentView_Previews: PreviewProvider {
