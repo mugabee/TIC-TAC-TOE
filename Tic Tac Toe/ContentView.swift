@@ -13,9 +13,17 @@ let columns: [GridItem] = [GridItem(.flexible()),
 
 struct ContentView: View {
     var body: some View {
-        LazyVGrid(columns: columns ) {
-            ForEach(0..<9) { i in
-                
+        GeometryReader { geometry in
+            LazyVGrid(columns: columns ) {
+                ForEach(0..<9) { i in
+                    ZStack {
+                        Circle()
+                            .foregroundColor(.red).opacity(0.5)
+            
+        }
+        
+                        
+                }
                 
             }
         }
