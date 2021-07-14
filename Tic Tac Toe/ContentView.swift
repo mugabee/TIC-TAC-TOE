@@ -15,7 +15,7 @@ struct ContentView: View {
                                GridItem(.flexible()),
                                GridItem(.flexible()),]
     
-    @State private var moves: [Move?] = Array[repeating: nil, count: 9]
+    @State private var moves: [Move?] = Array(repeating: nil, count: 9)
     @State private var isHumansTurn = true
 
     var body: some View {
@@ -36,7 +36,8 @@ struct ContentView: View {
                             
                         }
                         .onTapGesture {
-                            moves[i] = Move(player: isHumansTurn ?)
+                            moves[i] = Move(player: isHumansTurn ? .human : .computer, boardIndex: i)
+                            isHumansTurn.toggle()
                         }
                         
                     }
