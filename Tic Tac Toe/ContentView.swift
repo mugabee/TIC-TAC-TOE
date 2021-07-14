@@ -21,6 +21,8 @@ struct ContentView: View {
                         ZStack {
                             Circle()
                                 .foregroundColor(.red).opacity(0.5)
+                                .frame(width: geometry.size.width/3,
+                                       height: geometry.size.width/3)
                             
                         }
                         
