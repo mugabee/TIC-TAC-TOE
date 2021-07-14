@@ -49,6 +49,11 @@ enum Player {
 struct move {
     let player: Player
     let boardIndex: Int
+    
+    var indicator: String {
+        return player == .human ? "xmark" : "circle"
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
