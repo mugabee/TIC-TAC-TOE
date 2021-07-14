@@ -7,11 +7,17 @@
 
 import SwiftUI
 
-let columns: [GridItem] = [GridItem(.flexible()),
-                           GridItem(.flexible()),
-                           GridItem(.flexible()),]
+
+
 
 struct ContentView: View {
+    let columns: [GridItem] = [GridItem(.flexible()),
+                               GridItem(.flexible()),
+                               GridItem(.flexible()),]
+    
+    @State private var moves: [Move?] = Array[repeating: nil, count: 9]
+    @State private var isHumansTurn = true
+
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -29,7 +35,9 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                             
                         }
-                        
+                        .onTapGesture {
+                            moves[i] = Move(player: isHumansTurn ?)
+                        }
                         
                     }
                     
@@ -46,7 +54,7 @@ enum Player {
     case human, computer
 }
 
-struct move {
+struct Move {
     let player: Player
     let boardIndex: Int
     
