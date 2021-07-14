@@ -29,7 +29,7 @@ struct ContentView: View {
                                 .foregroundColor(.red).opacity(0.5)
                                 .frame(width: geometry.size.width/3 - 15,
                                        height: geometry.size.width/3 - 15)
-                            Image(systemName: "xmark")
+                            Image(systemName: moves[i]?.indicator ?? "")
                                 .resizable()
                                 .frame(width: 40, height: 40)
                                 .foregroundColor(.white)
