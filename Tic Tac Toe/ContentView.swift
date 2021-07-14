@@ -14,15 +14,10 @@ let columns: [GridItem] = [GridItem(.flexible()),
 struct ContentView: View {
     var body: some View {
         LazyVGrid(columns: columns ) {
-            Text("Placeholder")
-            Text("Placeholder")
-            Text("Placeholder")
-            Text("Placeholder")
-            Text("Placeholder")
-            Text("Placeholder")
-            Text("Placeholder")
-            Text("Placeholder")
-            Text("Placeholder")
+            ForEach(0..<9) { i in
+                
+                
+            }
         }
     }
 }
