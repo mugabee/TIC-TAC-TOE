@@ -48,7 +48,15 @@ struct ContentView: View {
                             // check for win condition or draw
                             if checkWinCondition(for: .human, in: moves) {
                                 print("Human Wins")
+                                return
+                                
+                                
                             }
+                            if checkForDraw(in: moves) {
+                                print("draw")
+                                return
+                            }
+                            
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 let computerPosition = determineComputerMovePosition(in: moves)
@@ -57,6 +65,11 @@ struct ContentView: View {
                                 
                                 if checkWinCondition(for: .computer, in: moves) {
                                     print("Computer Wins")
+                                    return
+                                }
+                                if checkForDraw(in: moves) {
+                                    print("draw")
+                                    return
                                 }
                                 
                             }                        }
@@ -92,6 +105,9 @@ struct ContentView: View {
         for pattern in winPatterns where pattern.isSubset(of: playerPositions) {return true}
         
         return false
+    }
+    func checkForDraw(in moves: [Move?]) -> Bool {
+        return moves.compactMap { $0 }.count == 9
     }
 }
 
