@@ -16,6 +16,7 @@ struct ContentView: View {
                                GridItem(.flexible()),]
     
     @State private var moves: [Move?] = Array(repeating: nil, count: 9)
+    @State private var isGameboardDisabled = false
     
     
     var body: some View {
@@ -40,6 +41,7 @@ struct ContentView: View {
                             if isSquareOccupied(in: moves, forIndex: i) { return }
                             
                             moves[i] = Move(player: .human, boardIndex: i)
+                            isGameboardDisabled = true
                             // isHumansTurn.toggle()
                             
                             
@@ -48,6 +50,7 @@ struct ContentView: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 let computerPosition = determineComputerMovePosition(in: moves)
                                 moves[computerPosition] = Move(player: .computer, boardIndex: computerPosition)
+                                isGameboardDisabled = false
                             }                        }
                         
                     }
@@ -55,6 +58,7 @@ struct ContentView: View {
                 }
                 Spacer()
             }
+            .disabled(isGameboardDisabled)
             .padding()
             
         }
@@ -70,6 +74,10 @@ struct ContentView: View {
            movePosition = Int.random(in: 0..<9)
         }
         return movePosition
+    }
+    func checkWinCondition(for player: Player, in moves: [Move?]) -> Bool {
+        let winPatterns: Set<Set<Int>> = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+        return true
     }
 }
 
