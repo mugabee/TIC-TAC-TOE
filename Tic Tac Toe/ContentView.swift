@@ -16,8 +16,8 @@ struct ContentView: View {
                                GridItem(.flexible()),]
     
     @State private var moves: [Move?] = Array(repeating: nil, count: 9)
-   
-
+    
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -40,14 +40,14 @@ struct ContentView: View {
                             if isSquareOccupied(in: moves, forIndex: i) { return }
                             
                             moves[i] = Move(player: .human, boardIndex: i)
-                           // isHumansTurn.toggle()
+                            // isHumansTurn.toggle()
                             
                             
                             // check for win condition or draw
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 let computerPosition = determineComputerMovePosition(in: moves)
-                                
+                                moves[computerPosition] = Move(player: .computer, boardIndex: computerPosition)
                             }                        }
                         
                     }
@@ -67,7 +67,7 @@ struct ContentView: View {
         var movePosition = Int.random(in: 0..<9)
         
         while isSquareOccupied(in: moves, forIndex: movePosition) {
-            var movePosition = Int.random(in: 0..<9)
+           movePosition = Int.random(in: 0..<9)
         }
         return movePosition
     }
