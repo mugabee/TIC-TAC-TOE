@@ -46,11 +46,19 @@ struct ContentView: View {
                             
                             
                             // check for win condition or draw
+                            if checkWinCondition(for: .human, in: moves) {
+                                print("Human Wins")
+                            }
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 let computerPosition = determineComputerMovePosition(in: moves)
                                 moves[computerPosition] = Move(player: .computer, boardIndex: computerPosition)
                                 isGameboardDisabled = false
+                                
+                                if checkWinCondition(for: .computer, in: moves) {
+                                    print("Computer Wins")
+                                }
+                                
                             }                        }
                         
                     }
