@@ -5,4 +5,29 @@
 //  Created by MUGABE RICHARD on 16/07/2021.
 //
 
-import Foundation
+import SwiftUI
+
+struct AlertItem: Identifiable {
+    let id = UUID()
+    var tittle: Text
+    var message: Text
+    var buttonTittle: Text
+}
+
+struct AlertContext {
+    let humanWin  = AlertItem(tittle: Text("You Win!"),
+                              message: Text("Urakagabo ha ha ha"),
+                              buttonTittle: Text("Congz"))
+    
+    let computerWin  = AlertItem(tittle: Text("You Lost"),
+                              message: Text("My AI is Super Amazing"),
+                              buttonTittle: Text("Congz"))
+    
+    let Draw  = AlertItem(tittle: Text("Draw"),
+                              message: Text("Keep it Up "),
+                              buttonTittle: Text("Try Again"))
+
+
+
+
+}
