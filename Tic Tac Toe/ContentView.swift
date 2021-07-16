@@ -17,6 +17,7 @@ struct ContentView: View {
     
     @State private var moves: [Move?] = Array(repeating: nil, count: 9)
     @State private var isGameboardDisabled = false
+    @State private var alertItem AlertItem?
     
     
     var body: some View {
@@ -81,6 +82,11 @@ struct ContentView: View {
             }
             .disabled(isGameboardDisabled)
             .padding()
+            .alert(item: $alertItem, content: { alertItem in
+                Alert(title: alertItem.title,
+                      message: alertItem.message,
+                      dismissButton: .default(alertItem.buttonTitle, action: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>))
+            })
             
         }
     }
