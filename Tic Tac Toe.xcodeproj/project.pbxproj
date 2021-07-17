@@ -56,10 +56,10 @@
 			children = (
 				FA52E403269F147D00A96FD0 /* Tic_Tac_ToeApp.swift */,
 				FA52E405269F147D00A96FD0 /* ContentView.swift */,
+				FA75617926A230D700A269F9 /* Alerts.swift */,
 				FA52E407269F148300A96FD0 /* Assets.xcassets */,
 				FA52E40C269F148300A96FD0 /* Info.plist */,
 				FA52E409269F148300A96FD0 /* Preview Content */,
-				FA75617926A230D700A269F9 /* Alerts.swift */,
 			);
 			path = "Tic Tac Toe";
 			sourceTree = "<group>";

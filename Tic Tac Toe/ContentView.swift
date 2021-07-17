@@ -48,13 +48,13 @@ struct ContentView: View {
                             
                             // check for win condition or draw
                             if checkWinCondition(for: .human, in: moves) {
-                                print("Human Wins")
+                                alertItem = AlertContext.humanWin
                                 return
                                 
                                 
                             }
                             if checkForDraw(in: moves) {
-                                print("draw")
+                                alertItem = AlertContext.Draw
                                 return
                             }
                             
