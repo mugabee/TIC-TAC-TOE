@@ -85,7 +85,8 @@ struct ContentView: View {
             .alert(item: $alertItem, content: { alertItem in
                 Alert(title: alertItem.title,
                       message: alertItem.message,
-                      dismissButton: .default(alertItem.buttonTitle, action: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>))
+                      dismissButton: .default(alertItem.buttonTitle, action: {
+                        resetGame() }))
             })
             
         }
@@ -114,6 +115,9 @@ struct ContentView: View {
     }
     func checkForDraw(in moves: [Move?]) -> Bool {
         return moves.compactMap { $0 }.count == 9
+    }
+    func resetGame()  {
+        moves = Array(repeating: nil, count: 9)
     }
 }
 
