@@ -17,7 +17,7 @@ struct ContentView: View {
     
     @State private var moves: [Move?] = Array(repeating: nil, count: 9)
     @State private var isGameboardDisabled = false
-    @State private var alertItem AlertItem?
+    @State private var alertItem: AlertItem?
     
     
     var body: some View {
@@ -65,11 +65,11 @@ struct ContentView: View {
                                 isGameboardDisabled = false
                                 
                                 if checkWinCondition(for: .computer, in: moves) {
-                                    print("Computer Wins")
+                                    alertItem = AlertContext.computerWin
                                     return
                                 }
                                 if checkForDraw(in: moves) {
-                                    print("draw")
+                                    alertItem = AlertContext.Draw
                                     return
                                 }
                                 
@@ -85,9 +85,10 @@ struct ContentView: View {
             .alert(item: $alertItem, content: { alertItem in
                 Alert(title: alertItem.title,
                       message: alertItem.message,
-                      dismissButton: .default(alertItem.buttonTitle, action: {
-                        resetGame() }))
+                      dismissButton: .default(alertItem.buttonTitle, action: { resetGame() }))
+                
             })
+            
             
         }
     }
