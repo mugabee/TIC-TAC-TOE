@@ -42,7 +42,7 @@ struct ContentView: View {
                             if isSquareOccupied(in: moves, forIndex: i) { return }
                             
                             moves[i] = Move(player: .human, boardIndex: i)
-                            isGameboardDisabled = true
+                            
                             // isHumansTurn.toggle()
                             
                             
@@ -57,6 +57,7 @@ struct ContentView: View {
                                 alertItem = AlertContext.Draw
                                 return
                             }
+                            isGameboardDisabled = true
                             
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -96,6 +97,12 @@ struct ContentView: View {
     func isSquareOccupied(in moves: [Move?], forIndex index: Int ) -> Bool {
         return moves.contains(where: { $0?.boardIndex == index})
     }
+    // if AI can Win, then win
+    // if AI can't win, then block
+    // if AI can't block, then take middle square
+    // if AI can't take middle square, take random Avilable square
+    
+    
     func determineComputerMovePosition(in move: [Move?]) -> Int {
         var movePosition = Int.random(in: 0..<9)
         
