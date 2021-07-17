@@ -109,7 +109,7 @@ struct ContentView: View {
         // if AI can Win, then win
         let winPatterns: Set<Set<Int>> = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
         let computerMoves = moves.compactMap { $0 }.filter { $0.player ==  .computer}
-        let computerPositions = Set(computerMoves.map { $0.boardIndex})
+        let computerPositions = Set(computerMoves.map { $0.boardIndex })
         
         for pattern in winPatterns {
             let winPositions = pattern.subtracting(computerPositions)
@@ -129,7 +129,8 @@ struct ContentView: View {
             if winPositions.count == 1 {
                 let isAvaiable = !isSquareOccupied(in: moves, forIndex: winPositions.first!)
                 if isAvaiable { return winPositions.first!}
-        
+            }
+        }
         // if AI can't block, then take middle square
         
         
